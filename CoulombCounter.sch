@@ -323,10 +323,19 @@ F 3 "~" H 5950 4300 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 Connection ~ 5950 4300
-Wire Wire Line
-	4150 3500 4600 3500
 Text Label 4300 3900 0    50   ~ 0
 ~ALCC~
-Text Label 4150 3500 0    50   ~ 0
-+3.3V
+$Comp
+L power:+3.3V #PWR0109
+U 1 1 5FE6BDA3
+P 4350 3500
+F 0 "#PWR0109" H 4350 3350 50  0001 C CNN
+F 1 "+3.3V" H 4365 3673 50  0000 C CNN
+F 2 "" H 4350 3500 50  0001 C CNN
+F 3 "" H 4350 3500 50  0001 C CNN
+	1    4350 3500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4350 3500 4600 3500
 $EndSCHEMATC
