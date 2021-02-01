@@ -2,7 +2,7 @@
  * Library for the Coulomb Counter, measuring battery
  * charge state, voltage, and current. Implemented with 
  * solar panels as load, input range allows use with multicell 
- * batteries up to 20V, we will be using Lithiom Ion batteries (3.3V).
+ * batteries up to 20V, we will be using Lithium Ion batteries (3.3V).
  * Precision is achieved via an integrated sense resistor between the positive
  * terminal of the battery and a load/charger. We will be storing measurements
  * via the internal registers accessed on the I2C/SMBus Interface, or WIRE in Arduino
