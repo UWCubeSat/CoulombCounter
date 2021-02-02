@@ -2,10 +2,11 @@
  * Library for the Coulomb Counter, measuring battery
  * charge state, voltage, and current. Implemented with 
  * solar panels as load, input range allows use with multicell 
- * batteries up to 20V, we will be using Lithium Ion batteries (3.3V).
+ * batteries up to 20V, we will be using Lithiom Ion batteries (3.3V).
  * Precision is achieved via an integrated sense resistor between the positive
  * terminal of the battery and a load/charger. We will be storing measurements
  * via the internal registers accessed on the I2C/SMBus Interface, or WIRE in Arduino
+ * Source: Source: https://github.com/ceech/Power-monitor-LTC2943/
  * 
  * Husky Satellite Lab
  * Created by Katharine Lundblad on February 1st, 2021
@@ -14,6 +15,11 @@
 #include <stdint.h>
 #include "CoulombCounter.h"
 #include <Wire.h>
+
+
+void LTC2943_reset() {
+  /* Set pin modes for desired communication */
+}
 
 /*
  * Write 8 bit code to the LTC2943
@@ -63,7 +69,7 @@ int8_t LTC2943_read_16_bits(uint8_t i2c_address, uint8_t adc_command, uint16_t *
  */
 float LTC2943_code_to_coulombs(uint16_t adc_code, float resistor, uint16_t prescalar) {
   float coulomb_charge;
-  coulomb_charge =  1000 * (float)(adc_code * LTC2943_CHARGE_lsb * prescalar * 50E-3)/(resistor * 4096);
+  coulomb_charge =  1000 * (float)(adc_code * LTC2943_CHARGE_LSB * prescalar * 50E-3)/(resistor * 4096);
   coulomb_charge = coulomb_charge*3.6f;
   return(coulomb_charge);
 }
@@ -73,7 +79,7 @@ float LTC2943_code_to_coulombs(uint16_t adc_code, float resistor, uint16_t presc
  */
 float LTC2943_code_to_mAh(uint16_t adc_code, float resistor, uint16_t prescalar ) {
   float mAh_charge;
-  mAh_charge = 1000 * (float)(adc_code * LTC2943_CHARGE_lsb * prescalar * 50E-3)/(resistor * 4096);
+  mAh_charge = 1000 * (float)(adc_code * LTC2943_CHARGE_LSB * prescalar * 50E-3)/(resistor * 4096);
   return(mAh_charge);
 }
 

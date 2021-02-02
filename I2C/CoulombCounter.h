@@ -1,6 +1,7 @@
 /*
  * Library for Multicell Batter Gas Gauge with
  * Voltage and Current Measurement for the Husky Satellite 2
+ * Source: https://github.com/ceech/Power-monitor-LTC2943/
  * 
  * Husky Satellite Lab
  * Created by Katharine Lundblad on February 1st, 2021
@@ -17,6 +18,14 @@
 #define LTC2943_I2C_ADDRESS 0x64 /** 0xC8 **/
 #define LTC2943_I2C_ALERT_RESPONSE 0x0C
 
+/*
+ * Define pins for Arduino DOIT ESP32
+ */
+#define SDA 21
+#define SCL 22
+#define CSB 3
+#define SDO 1
+ 
 /*
  * Define Register Addresses for charge and voltage
  * measurement
@@ -45,10 +54,10 @@
 /*
  * Define Conversion Constants
  */
-const float LTC2943_CHARGE_lsb = 0.34E-3; // 0.34 mAh
-const float LTC2943_VOLTAGE_lsb = 1.44E-3; // 1.44 mV
-const float LTC2943_CURRENT_lsb = 29.3E-6; // 29.3 uV
-const float LTC2943_TEMPERATURE_lsb = 0.25; // 0.25 C
+const float LTC2943_CHARGE_LSB = 0.34E-3; // 0.34 mAh
+const float LTC2943_VOLTAGE_LSB = 1.44E-3; // 1.44 mV
+const float LTC2943_CURRENT_LSB = 29.3E-6; // 29.3 uV
+const float LTC2943_TEMPERATURE_LSB = 0.25; // 0.25 C
 const float LTC2943_FULLSCALE_VOLTAGE = 23.6; // 23.6 V
 const float LTC2943_FULLSCALE_CURRENT = 60E-3; // 60 mV
 const float LTC2943_FULLSCALE_TEMPERATURE = 510; // 510 K

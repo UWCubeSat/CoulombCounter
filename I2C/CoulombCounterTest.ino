@@ -3,6 +3,7 @@
  * charge, current and voltage from the LTC2943.
  * Precision is maintained via two SENSE pins and a sense
  * resistor. Current prototype uses a 50mOhm sense resistor.
+ * Source: Source: https://github.com/ceech/Power-monitor-LTC2943/
  * 
  * Husky Satellite Lab
  * Created by Katharine Lundblad on February 1st 2021
